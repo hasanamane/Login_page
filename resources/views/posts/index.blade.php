@@ -9,14 +9,19 @@
     <title>All Posts</title>
 </head>
 <body>
+
 <div style=" max-width: 600px; margin-left: auto; margin-right:auto; background-color: #1a202c">
-<table class="table" style="color:white;">
+    <a class="btn btn-danger" href="{{route('posts.delete.All')}}" role="button">DeleteAll</a>
+
+    <a class="btn btn-danger" href="{{route('posts.truncate.All')}}" role="button" style="float:right;">TruncateAll</a>
+
+    <table class="table" style="color:white;">
     <thead>
     <tr style="color:yellowgreen;">
         <th scope="col">ID</th>
         <th scope="col">POST</th>
         <th scope="col">BODY</th>
-
+        <th scope="col">Effect</th>
     </tr>
     </thead>
     <tbody>
@@ -26,7 +31,10 @@
         <th scope="row" style="color:darkgoldenrod;">{{$post->id}}</th>
         <td style="color:darkgoldenrod;">{{$post->title}}</td>
         <td style="color:darkgoldenrod;">{{$post->body}}</td>
-
+        <td>
+            <a class="btn btn-primary" href="{{route('post.edit',$post->id)}}" role="button">edit</a>
+            <a class="btn btn-danger" href="{{route('post.delete',$post->id)}}" role="button">Delete</a>
+        </td>
     </tr>
     @endforeach
 
